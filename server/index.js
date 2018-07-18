@@ -31,5 +31,18 @@ app.use(expressValidator());
 const Route = require('./routes');
 app.use('/api',Route);
 
+// error handler
+app.use((req , res , next) => {
+    let err = new Error('not found.');
+    err.status = 404;
+    next(err);
+});
+app.use((err , req , res , next) => {
+    let status = err.status || 500;
+    if(config.debug)
+        return res.status(status).json({ error : { message : err.message , stack : err.stack } });
+    return res.status(status).json({ error : { message : err.message } });
+});
+
 //cell Server//
 app.listen(config.port,() => console.log(`server started in port ${config.port}...`));
