@@ -27,9 +27,9 @@ app.use(bodyParser.json());
 app.use(expressValidator());
 
 
-// //routes//
-// const apiRoute = require(config.path.apiRoute);
-// app.use('/api',apiRoute);
+//routes//
+const Route = require('./routes');
+app.use('/api',Route);
 
 //cell Server//
 app.listen(config.port,() => console.log(`server started in port ${config.port}...`));
