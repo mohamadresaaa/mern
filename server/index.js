@@ -15,7 +15,7 @@ mongoose.connect(
 
 
 //use Static File And View Engine//
-app.use('/public',express.static('public'));
+app.use('/public' , express.static('public'));
 
 
 //body Parser//
