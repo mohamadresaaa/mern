@@ -1,7 +1,7 @@
 {
   "name": "nodeapiandreactjs",
   "version": "1.0.0",
-  "description": "react project",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "server-dev": "nodemon server/index.js",
