@@ -14,14 +14,14 @@ module.exports = class UserTransForm extends Transform {
     };
 
     withToken(item){
-        if(item.hexzm_token)
-            return { hexzm_token : item.hexzm_token }
+        if(item.token)
+            return { token : item.token }
 
         if(this.createToken){
-            let hexzm_token = jwt.sign({ user_id : item._id } , config.secret , {
+            let token = jwt.sign({ user_id : item._id } , config.secret , {
                 expiresIn : '72h'
             });
-            return { hexzm_token };
+            return {token };
         }
         return {};
     }
